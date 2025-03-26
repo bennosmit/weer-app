@@ -20,6 +20,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Initialiseer session state voor favorieten
+if 'favorites' not in st.session_state:
+    st.session_state.favorites = []
+
 # Custom CSS voor styling
 st.markdown("""
     <style>
@@ -220,14 +224,10 @@ st.markdown("""
 
 # Functies voor favoriete steden
 def load_favorites():
-    if os.path.exists('favorites.json'):
-        with open('favorites.json', 'r') as f:
-            return json.load(f)
-    return []
+    return st.session_state.favorites
 
 def save_favorites(favorites):
-    with open('favorites.json', 'w') as f:
-        json.dump(favorites, f)
+    st.session_state.favorites = favorites
 
 # Sidebar menu
 with st.sidebar:
