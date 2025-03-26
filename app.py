@@ -8,7 +8,7 @@ import json
 import os
 
 # API configuratie
-API_KEY = "6a2eb942fe65be7279f72950cd702eed"
+API_KEY = st.secrets["api"]["openweathermap_api_key"]
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast"
 
